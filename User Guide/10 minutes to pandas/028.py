@@ -1,0 +1,21 @@
+import numpy as np
+import pandas as pd
+dates = pd.date_range("20130101", periods=6)
+print(dates)
+print(type(dates))
+print(dates.dtype)
+df = pd.DataFrame(np.random.randn(6, 4), index=dates, columns=list("ABCD"))
+print(type(df))
+print(df.dtypes)
+print(df)
+df2 = df.copy()
+print(df2.dtypes)
+print(type(df2))
+print(df2)
+df2["E"] = ["one", "one", "two", "three", "four", "three"]
+print(df2)
+print(df2.dtypes)
+# print(df)
+print(df2["E"])
+print(df2["E"].isin(["two","four"]))
+print(df2[df2["E"].isin(["two","four"])])
